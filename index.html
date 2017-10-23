@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<title>Task</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body ng-controller="appController">
+
+	<!-- Search field -->
+	<div class="search-holder">
+		<input ng-model="searchValue" ng-change="sendRequest()" placeholder="Hero Search" type="text" name="search-field" id="search-field" />
+	</div>
+
+	<!-- Search result of Marvel characters -->
+	<div id="results-section" ng-if="searchValue !== undefined && searchValue !== ''">
+		<div class="result-item" ng-repeat="result in resultsArray track by $index">
+			<div class="image-holder loading">
+				<img ng-src="{{result.thumbnail.path}}.{{result.thumbnail.extension}}" class="hero-image" imageonload="imageLoader()" />
+				<div class="bookmark-holder"><i class="fa fa-star bookmark-icon" ng-click="bookmarking(result)" title="Bookmark Hero" aria-hidden="true"></i></div>
+			</div>
+			<p>{{result.name}}</p>
+			<div class="bookmark-state">Bookmarked: </div>
+		</div>
+	</div>
+
+	<!-- Bookmarked Marvel characters -->
+	<div id="results-section-bookmark" ng-if="searchValue == undefined || searchValue == ''">
+		<div class="result-item" ng-repeat="bookmark in bookmarkedArray track by $index">
+			<div class="image-holder loading">
+				<img ng-src="{{bookmark.thumbnail.path}}.{{bookmark.thumbnail.extension}}" class="hero-image" imageonload="imageLoader()" />
+				<div class="bookmark-holder"><i class="fa fa-star bookmark-icon" ng-click="removeBookmarkStart(bookmark)" title="Remove Bookmark" aria-hidden="true"></i></div>
+			</div>
+			<p>{{bookmark.name}}</p>
+			<div class="bookmark-state"><span>Bookmarked:</span><span class="bstate">YES</span></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-migrate-3.0.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="angular/angular.min.js"></script>	
+	<script type="text/javascript" src="js/app.js"></script>
+
+	</body>
+</html>

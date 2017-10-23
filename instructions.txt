@@ -1,0 +1,21 @@
+I was working this test in AngularJS.
+
+1. Run index.html file in browser.
+2. Typing some hero in the search field, maximum of 12 images of characters will appear.
+3. Hovering over image, star icon will be visible and when it's clicked 
+the character will be bookmarked locally.
+4.Deleting letters in search field will remove current result list of Marvel characters 
+and show Marvel characters that are bookmarked.
+5. When the list of bookmarked Marvel characters is visible you can remove bookmarked 
+Marvel character if you click on the star icon.
+
+
+What I couldn't accomplish:
+
+I couldn't connect bookmarked Marvel characters with those in the search result list. 
+I couldn't indicate that they are already bookmarked.
+It is possible to bookmark the same character more than once.
+Sometimes it happens that images are not resized as it should be, but when window resize is 
+triggered, image resize works as it should be (I think that there must be some delay in calling 
+the function that resizes images). 
+Until now, I didn't work Jest testing.   
